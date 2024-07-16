@@ -1,39 +1,16 @@
-/*
-Generating Public Key
+### RSA General Theory
 
-1. Select two prime no's. Suppose P = 53 and Q = 59.
-Now First part of the Public key  : n = P*Q = 3127.
+RSA encryption is a widely-used method for securing data, ensuring privacy, 
+and authenticating communications in the digital world. Named after its inventors, 
+Ron Rivest, Adi Shamir, and Leonard Adleman, RSA is an asymmetric encryption algorithm, 
+meaning it uses a pair of keys: a public key for encryption and a private key for decryption.
 
-2. We also need a small exponent say e :
-   But e Must be
+In simple terms, RSA works as follows:
 
-    -An integer.
+1. **Key Generation**: Two large prime numbers are chosen and multiplied together to form a modulus. This modulus, along with an exponent, forms the public key, while a related exponent is kept secret as the private key.
 
-    -Not be a factor of n.
+2. **Encryption**: When someone wants to send a secure message, they use the recipient's public key to convert the message into an unreadable format.
 
-    -1 < e < Φ(n) [Φ(n) is discussed below],
-     Let us now consider it to be equal to 3.
+3. **Decryption**: The recipient then uses their private key to convert the unreadable message back into its original form.
 
-The public key has been made of n and e
-
-Generating Private Key
-
-1. We need to calculate Φ(n) :
-   Such that Φ(n) = (P-1)(Q-1)
-      so,  Φ(n) = 3016
-
-2. Now calculate Private Key, d :
-   d = (k*Φ(n) + 1) / e for some integer k
-
-3. For k = 2, value of d is 2011.
-
-The private key has been made of d
-    Consider two prime numbers p and q.
-    Compute n = p*q
-    Compute ϕ(n) = (p – 1) * (q – 1)
-    Choose e such gcd(e , ϕ(n) ) = 1
-    Calculate d such e*d mod ϕ(n) = 1
-    Public Key {e,n} Private Key {d,n}
-    Cipher text C = Pe mod n where P = plaintext
-    For Decryption D = Dd mod n where D will refund the plaintext.
- */
+This process ensures that only the intended recipient, who possesses the private key, can read the message, providing a high level of security. RSA encryption is fundamental to many modern security protocols, including SSL/TLS for secure web browsing and PGP for encrypted emails.
